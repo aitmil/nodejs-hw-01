@@ -8,7 +8,7 @@ export const addOneContact = async () => {
     let contacts = JSON.parse(data);
 
     const newContact = createFakeContact();
-    contacts.push(newContact);
+    const addedContact = contacts.push(newContact);
 
     await fs.writeFile(
       PATH_DB,
@@ -16,7 +16,7 @@ export const addOneContact = async () => {
       'utf-8',
     );
 
-    console.log('Successfully added one contact.');
+    console.log(`Successfully added ${addedContact} contact`);
   } catch (error) {
     console.log(error);
   }
